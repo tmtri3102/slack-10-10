@@ -16,23 +16,27 @@ public class CheckNum {
 
             switch (option) {
                 case 1:
-                    System.out.print("Pick a number from 11-99: ");
-                    int num = input.nextInt();
-                    int sum = 0;
-                    if (num > 10 && num < 100) {
-                        for (int i = 1; i <= num; i++) {
-                            if (i % 2 != 0) {
-                                sum += i;
-                            }
-                        }
-                        System.out.println("Sum = " + sum);
-                    } else {
-                        System.out.println("Please pick another number.");
+                    int num = 0;
+                    while (num < 10 || num > 100) {
+                        System.out.print("Pick a number from 11-99: ");
+                        num = input.nextInt();
+
                     }
+                    int sum = 0;
+                    for (int i = 1; i <= num; i++) {
+                        if (i % 2 != 0) {
+                            sum += i;
+                        }
+                    }
+                    System.out.println("Sum = " + sum);
                     break;
                 case 2:
                     System.out.print("Pick a number: ");
                     int number = input.nextInt();
+                    while (number < 0) {
+                        System.out.print("Pick a number: ");
+                        number = input.nextInt();
+                    }
                     int i = 2;
                     boolean check = true;
                     while (i <= Math.sqrt(number)) {
@@ -50,6 +54,10 @@ public class CheckNum {
                 case 3:
                     System.out.print("Pick a month: ");
                     int month = input.nextInt();
+                    while (month < 1 || month > 12) {
+                        System.out.print("Pick a month: ");
+                        month = input.nextInt();
+                    }
                     switch (month) {
                         case 1:
                         case 3:
@@ -69,8 +77,6 @@ public class CheckNum {
                         case 11:
                             System.out.println("30 days");
                             break;
-                        default:
-                            System.out.println("Invalid month");
                     }
                     break;
                 default:
